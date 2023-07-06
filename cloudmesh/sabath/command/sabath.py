@@ -106,11 +106,11 @@ class SabathCommand(PluginCommand):
             elif arguments.md:
                 f = FlatDict(sep=".")
                 content = f.load(content=arguments.config)
-                pprint (f)
+                pprint (f.__dict__)
 
                 banner("Docuentation", color="RED")
                 from cloudmesh.sabath.extension import to_md
-                print(to_md(content))
+                print(to_md(f.dict))
 
         except Exception as e:
             Console.error(e)
